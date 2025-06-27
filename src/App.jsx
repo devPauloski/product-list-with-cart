@@ -1,14 +1,21 @@
 import "./App.css";
+import Product from "./components/Product.jsx";
+import Cart from "./components/Cart.jsx";
+import Order from "./components/Order.jsx";
 
-export default function App() {
+function App() {
   return (
     <main>
-      
+      <Product />
+      <Cart />
+      <Order />
     </main>
-  );
+  )
 }
 
-// Desserts
+export default App
+
+
 
 // Waffle with Berries
 // Waffle
@@ -56,4 +63,4 @@ export default function App() {
 // Add to Cart
 
 // Your Cart (Quantity)
-// Your added items will appear here 
+// Your added items will appear here
