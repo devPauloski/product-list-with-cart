@@ -5,7 +5,7 @@ import Order from "./components/Order.jsx";
 
 function App() {
   return (
-    <main className="max-w-[76.25rem] mx-auto w-[90%] grid my-[1.875rem]">
+    <main className="max-w-[35rem] md:max-w-[76.25rem] mx-auto w-[90%] grid my-[1.875rem] md:grid-cols-[1fr_30%]">
       <Product />
       <Cart />
       <Order />
@@ -14,53 +14,3 @@ function App() {
 }
 
 export default App
-
-
-
-// Waffle with Berries
-// Waffle
-// 6.50
-// Add to Cart
-
-// Vanilla Bean Crème Brûlée
-// Crème Brûlée
-// 7.00
-// Add to Cart
-
-// Macaron Mix of Five
-// Macaron
-// 8.00
-// Add to Cart
-
-// Classic Tiramisu
-// Tiramisu
-// 5.50
-// Add to Cart
-
-// Pistachio Baklava
-// Baklava
-// 4.00
-// Add to Cart
-
-// Lemon Meringue Pie
-// Pie
-// 5.00
-// Add to Cart
-
-// Red Velvet Cake
-// Cake
-// 4.50
-// Add to Cart
-
-// Salted Caramel Brownie
-// Brownie
-// 4.50
-// Add to Cart
-
-// Vanilla Panna Cotta
-// Panna Cotta
-// 6.50
-// Add to Cart
-
-// Your Cart (Quantity)
-// Your added items will appear here

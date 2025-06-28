@@ -1,6 +1,6 @@
 function Order() {
   return (
-    <p>Order</p>
+    <section className="hidden">Order</section>
   )
 }
 
