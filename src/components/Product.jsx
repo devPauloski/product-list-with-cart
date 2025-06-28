@@ -5,35 +5,33 @@ function ProductList() {
     return (
       <li key={item.id}>
         <picture>
-            <source srcSet={item.image.desktop} media="(min-width: 64em)" />
-            <source srcSet={item.image.tablet} media="(min-width: 48em)" />
-            <img 
-              src={item.image.mobile}
-              alt={item.name}
-              className="rounded-xl"
-            />
-          </picture>
-          <button className="flex px-[10%] py-3 border-1 flex-wrap gap-2 rounded-[100vmax] cursor-pointer border-rose-400 items-center justify-center -translate-y-2/4 bg-white relative left-2/4 -translate-x-2/4">
-            <img src="/assets/images/icon-add-to-cart.svg" alt="" />
-            <span className="font-medium text-rose-900">Add to cart</span>
+          <source srcSet={item.image.desktop} media="(min-width: 64em)" />
+          <source srcSet={item.image.tablet} media="(min-width: 48em)" />
+          <img src={item.image.mobile} alt={item.name} className="rounded-xl" />
+        </picture>
+        <button className="flex px-[10%] py-3 border-1 flex-wrap gap-2 rounded-[100vmax] cursor-pointer border-rose-400 items-center justify-center -translate-y-2/4 bg-white relative left-2/4 -translate-x-2/4">
+          <img src="/assets/images/icon-add-to-cart.svg" alt="" />
+          <span className="font-medium text-rose-900">Add to cart</span>
+        </button>
+        <div className="hidden bg-rose-500">
+          <button aria-label="Increase quantity">
+            <img src="/assets/images/icon-increment-quantity.svg" alt="" />
           </button>
-          <div className="hidden bg-rose-500">
-            <button aria-label="Increase quantity">
-              <img src="/assets/images/icon-increment-quantity.svg" alt="" />
-            </button>
-            <span aria-label="Quantity">0</span>
-            <button aria-label="Decrease quantity">
-              <img src="/assets/images/icon-decrement-quantity.svg" alt="" />
-            </button>
-          </div>
-        <p className="text-rose-300 mb-2.5 text-sm">{item.category}</p>
-        <h2 className="mb-3 font-medium text-rose-900">{item.name}</h2>
+          <span aria-label="Quantity">0</span>
+          <button aria-label="Decrease quantity">
+            <img src="/assets/images/icon-decrement-quantity.svg" alt="" />
+          </button>
+        </div>
+        <p className="text-rose-300 text-sm mb-1">{item.category}</p>
+        <h2 className="font-medium text-rose-900 mb-1">{item.name}</h2>
         <p className="font-medium text-red">${item.price}</p>
       </li>
     );
   });
 
-  return <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">{products}</ul>;
+  return (
+    <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">{products}</ul>
+  );
 }
 
 function Product() {
