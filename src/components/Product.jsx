@@ -4,7 +4,7 @@ function ProductList() {
   const products = data.map((item) => {
     return (
       <li key={item.id}>
-        <div className="relative">
+        <div className="relative mb-9">
           <picture>
             <source srcSet={item.image.desktop} media="(min-width: 64em)" />
             <source srcSet={item.image.tablet} media="(min-width: 48em)" />
@@ -14,7 +14,7 @@ function ProductList() {
               className="rounded-xl"
             />
           </picture>
-          <button className="inline-flex px-4 py-2.5 border-1 flex-wrap gap-2 rounded-[100vmax] cursor-pointer border-rose-400 absolute  items-center justify-center inset-x-[20vw] -translate-y-2/4 bg-white">
+          <button className="inline-flex px-6 py-3 border-1 flex-wrap gap-2 rounded-[100vmax] cursor-pointer border-rose-400 absolute items-center justify-center -translate-y-2/4 bg-white -translate-x-2/4 left-2/4">
             <img src="/assets/images/icon-add-to-cart.svg" alt="" />
             <span className="font-medium text-rose-900">Add to cart</span>
           </button>
@@ -28,7 +28,7 @@ function ProductList() {
             </button>
           </div>
         </div>
-        <p className="mt-9 text-rose-300 mb-2.5 text-sm">{item.category}</p>
+        <p className="text-rose-300 mb-2.5 text-sm">{item.category}</p>
         <h2 className="mb-3 font-medium text-rose-900">{item.name}</h2>
         <p className="font-medium text-red">${item.price}</p>
       </li>
