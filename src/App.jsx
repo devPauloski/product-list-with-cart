@@ -5,7 +5,7 @@ import Order from "./components/Order.jsx";
 
 function App() {
   return (
-    <main>
+    <main className="max-w-[76.25rem] mx-auto w-[90%] grid my-[1.875rem]">
       <Product />
       <Cart />
       <Order />
