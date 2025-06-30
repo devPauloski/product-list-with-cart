@@ -9,11 +9,11 @@ function ProductList() {
           <source srcSet={item.image.tablet} media="(min-width: 48em)" />
           <img src={item.image.mobile} alt={item.name} className="rounded-xl" />
         </picture>
-        <button className="hidden px-[10%] py-3 border-1 flex-wrap gap-2 rounded-[100vmax] cursor-pointer border-rose-400 items-center justify-center -translate-y-2/4 bg-white relative left-2/4 -translate-x-2/4">
+        <button className="flex px-[10%] py-3 border-1 flex-wrap gap-2 rounded-[100vmax] cursor-pointer border-rose-400 items-center justify-center -translate-y-2/4 bg-white relative left-2/4 -translate-x-2/4">
           <img src="/assets/images/icon-add-to-cart.svg" alt="" />
           <span className="font-medium text-rose-900">Add to cart</span>
         </button>
-        <div className="inline-flex items-center justify-between gap-4 bg-red px-[10%] py-3 -translate-y-2/4 left-2/4 -translate-x-2/4 relative max-w-[10rem] w-full rounded-[100vmax]">
+        <div className="hidden items-center justify-between gap-4 bg-red p-4 -translate-y-2/4 left-2/4 -translate-x-2/4 relative max-w-[10rem] w-full rounded-[100vmax]">
           <button aria-label="Increase quantity" className="border-rose-50">
             <img src="/assets/images/icon-decrement-quantity.svg" alt="" />
           </button>
