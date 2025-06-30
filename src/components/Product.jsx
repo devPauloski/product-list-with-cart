@@ -12,7 +12,7 @@ function ProductList({ count, show, handleClick }) {
         <div>
           {show ? (
             <button
-              onClick={() => handleClick()}
+              onClick={(e) => handleClick()}
               className="flex px-[10%] py-3 border-1 flex-wrap gap-2 rounded-[100vmax] cursor-pointer border-rose-400 items-center justify-center -translate-y-2/4 bg-white relative left-2/4 -translate-x-2/4"
             >
               <img src="/assets/images/icon-add-to-cart.svg" alt="" />
@@ -46,11 +46,11 @@ function ProductList({ count, show, handleClick }) {
   );
 }
 
-function Product() {
+function Product({show, handleClick}) {
   return (
     <section>
       <h1 className="font-bold leading-tight text-[2rem] mb-9">Desserts</h1>
-      <ProductList />
+      <ProductList show={show} handleClick={handleClick} />
     </section>
   );
 }
