@@ -6,7 +6,7 @@ import Order from "./components/Order.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   const [cartItems, setCartItems] = useState([]);
 
   function handleClick() {
