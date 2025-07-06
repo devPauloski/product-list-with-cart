@@ -1,7 +1,5 @@
 function Order() {
-  return (
-    <section className="hidden">Order</section>
-  )
+  return <section className="hidden">Order</section>;
 }
 
-export default Order
+export default Order;
