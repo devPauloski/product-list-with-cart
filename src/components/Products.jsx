@@ -41,7 +41,7 @@ function ProductList() {
   );
 }
 
-function Product() {
+function Products() {
   return (
     <section>
       <h1 className="mb-9 text-[2rem] leading-tight font-bold">Desserts</h1>
@@ -50,4 +50,4 @@ function Product() {
   );
 }
 
-export default Product;
+export default Products;
