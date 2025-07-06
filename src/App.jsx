@@ -3,7 +3,7 @@ import Products from "./components/Products.jsx";
 import Cart from "./components/Cart.jsx";
 import Order from "./components/Order.jsx";
 
-function App() {
+export default function App() {
   const [cartItems, setCartItems] = useState([]);
 
   return (
@@ -15,4 +15,3 @@ function App() {
   );
 }
 
-export default App;

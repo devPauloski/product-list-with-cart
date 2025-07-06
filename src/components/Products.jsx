@@ -16,7 +16,7 @@ function ProductList() {
           <img src={addToCartIcon} alt="" />
           <span className="font-medium text-rose-900">Add to cart</span>
         </button>
-        <div className="relative left-2/4 flex h-[2.75rem] w-full max-w-[10rem] -translate-x-2/4 -translate-y-2/4 items-center justify-between gap-4 rounded-[100vmax] bg-red px-4">
+        {/* <div className="relative left-2/4 flex h-[2.75rem] w-full max-w-[10rem] -translate-x-2/4 -translate-y-2/4 items-center justify-between gap-4 rounded-[100vmax] bg-red px-4">
           <button aria-label="Decrease quantity">
             <img src={decrementQuantityIcon} alt="" />
           </button>
@@ -26,7 +26,7 @@ function ProductList() {
           <button aria-label="Increase quantity" className="border-rose-50">
             <img src={incrementQantityIcon} alt="" />
           </button>
-        </div>
+        </div> */}
         <p className="mb-1 text-sm text-rose-400">{item.category}</p>
         <h2 className="mb-1 font-medium text-rose-900">{item.name}</h2>
         <p className="font-medium text-red">${item.price}</p>
@@ -41,7 +41,7 @@ function ProductList() {
   );
 }
 
-function Products() {
+export default function Products() {
   return (
     <section>
       <h1 className="mb-9 text-[2rem] leading-tight font-bold">Desserts</h1>
@@ -50,4 +50,4 @@ function Products() {
   );
 }
 
-export default Products;
+
