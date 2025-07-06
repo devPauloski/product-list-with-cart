@@ -7,10 +7,16 @@ import Order from "./components/Order.jsx";
 export default function App() {
   const [cartItems, setCartItems] = useState([]);
 
+  function addToCart(productItem) {
+    return setCartItems(currentCartItems => {
+      return [...currentCartItems, {...productItem, quantity: 1}]
+    })
+  }
+
   return (
     <Wrapper>
-      <Products />
-      <Cart />
+      <Products addToCart={addToCart} />
+      <Cart cartItems={cartItems} />
       <Order />
     </Wrapper>
   );

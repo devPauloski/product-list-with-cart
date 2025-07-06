@@ -3,7 +3,7 @@ import addToCartIcon from "../assets/icons/icon-add-to-cart.svg";
 import incrementQantityIcon from "../assets/icons/icon-increment-quantity.svg";
 import decrementQuantityIcon from "../assets/icons/icon-decrement-quantity.svg";
 
-function ProductList() {
+function ProductList({addToCart}) {
   const products = data.map((item) => {
     return (
       <li key={item.id}>
@@ -12,7 +12,9 @@ function ProductList() {
           <source srcSet={item.image.tablet} media="(min-width: 48em)" />
           <img src={item.image.mobile} alt={item.name} className="rounded-xl" />
         </picture>
-        <button className="relative left-2/4 flex h-[2.75rem] w-full max-w-[10rem] -translate-x-2/4 -translate-y-2/4 cursor-pointer items-center justify-center gap-2 rounded-[100vmax] border-1 border-rose-400 bg-white">
+        <button className="relative left-2/4 flex h-[2.75rem] w-full max-w-[10rem] -translate-x-2/4 -translate-y-2/4 cursor-pointer items-center justify-center gap-2 rounded-[100vmax] border-1 border-rose-400 bg-white"
+        onClick={() => addToCart(item)}
+        >
           <img src={addToCartIcon} alt="" />
           <span className="font-medium text-rose-900">Add to cart</span>
         </button>
@@ -41,11 +43,11 @@ function ProductList() {
   );
 }
 
-export default function Products() {
+export default function Products({addToCart}) {
   return (
     <section>
       <h1 className="mb-9 text-[2rem] leading-tight font-bold">Desserts</h1>
-      <ProductList />
+      <ProductList addToCart={addToCart} />
     </section>
   );
 }
