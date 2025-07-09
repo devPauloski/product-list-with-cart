@@ -14,8 +14,8 @@ function ProductList({ addToCart, cartItems, isItemInCart }) {
         </picture>
         {!isItemInCart(cartItems, item.id) ? (
           <button
-            className="relative left-2/4 flex h-[2.75rem] w-full max-w-[10rem] -translate-x-2/4 -translate-y-2/4 cursor-pointer items-center justify-center gap-2 rounded-[100vmax] border-1 border-rose-400 bg-white"
             onClick={() => addToCart(item)}
+            className="relative left-2/4 flex h-[2.75rem] w-full max-w-[10rem] -translate-x-2/4 -translate-y-2/4 cursor-pointer items-center justify-center gap-2 rounded-[100vmax] border-1 border-rose-400 bg-white"
           >
             <img src={addToCartIcon} alt="" />
             <span className="font-medium text-rose-900">Add to cart</span>
