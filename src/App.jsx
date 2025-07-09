@@ -8,9 +8,15 @@ export default function App() {
   const [cartItems, setCartItems] = useState([]);
 
   function addToCart(productItem) {
+    setCartItems((currentCartItems) => {
+      return [...currentCartItems, { ...productItem, quantity: 1 }];
+    });
+  }
+
+  function deleteCartItem(productItemId) {
     setCartItems(currentCartItems => {
-      return [...currentCartItems, {...productItem, quantity: 1}]
-    })
+      return currentCartItems.filter(item => item.id !== productItemId)
+    });
   }
 
   function isItemInCart(currentCartItems, productItemId) {
@@ -19,16 +25,18 @@ export default function App() {
         return true;
       }
     }
-
     return false;
   }
 
   return (
     <Wrapper>
-      <Products addToCart={addToCart} isItemInCart={isItemInCart} cartItems={cartItems} />
-      <Cart cartItems={cartItems} />
+      <Products
+        addToCart={addToCart}
+        isItemInCart={isItemInCart}
+        cartItems={cartItems}
+      />
+      <Cart cartItems={cartItems} deleteCartItem={deleteCartItem} />
       <Order />
     </Wrapper>
   );
 }
-

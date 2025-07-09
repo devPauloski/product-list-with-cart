@@ -1,7 +1,7 @@
 import emptyCartIcon from "../assets/icons/illustration-empty-cart.svg";
 import deleteIcon from "../assets/icons/icon-remove-item.svg";
 
-export default function Cart({ cartItems }) {
+export default function Cart({ cartItems, deleteCartItem }) {
   return (
     <section className="h-fit rounded-xl bg-white p-5 shadow-xl">
       <h2 className="mb-2 text-2xl leading-tight font-bold text-red">
@@ -37,6 +37,7 @@ export default function Cart({ cartItems }) {
                   </div>
                 </div>
                 <button
+                  onClick={() => deleteCartItem(item.id)}
                   aria-label={`Delete cartItem - ${item.name}`}
                   className="flex h-4.5 w-4.5 items-center justify-center rounded-full border-2 border-rose-300"
                 >
