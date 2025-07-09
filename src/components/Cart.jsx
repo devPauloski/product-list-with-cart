@@ -1,5 +1,6 @@
 import emptyCartIcon from "../assets/icons/illustration-empty-cart.svg";
 import deleteIcon from "../assets/icons/icon-remove-item.svg";
+import carbonNeutralIcon from "../assets/icons/icon-carbon-neutral.svg";
 
 export default function Cart({ cartItems, deleteCartItem }) {
   return (
@@ -15,38 +16,51 @@ export default function Cart({ cartItems, deleteCartItem }) {
           </p>
         </div>
       ) : (
-        <ul>
-          {cartItems.map((item) => {
-            return (
-              <li
-                key={item.id}
-                className="flex items-center justify-between border-b-1 border-solid border-b-rose-100 py-4"
-              >
-                <div>
-                  <h3 className="text-sm font-bold text-rose-900">
-                    {item.name}
-                  </h3>
-                  <div className="flex">
-                    <p className="mr-3 font-medium text-red">
-                      {item.quantity}&times;
-                    </p>
-                    <p className="mr-2 text-rose-300">&#64;${item.price}</p>
-                    <p className="font-medium text-rose-400">
-                      ${item.price * item.quantity}
-                    </p>
-                  </div>
-                </div>
-                <button
-                  onClick={() => deleteCartItem(item.id)}
-                  aria-label={`Delete cartItem - ${item.name}`}
-                  className="flex h-4.5 w-4.5 items-center justify-center rounded-full border-2 border-rose-300"
+        <div>
+          <ul>
+            {cartItems.map((item) => {
+              return (
+                <li
+                  key={item.id}
+                  className="flex items-center justify-between border-b-1 border-solid border-b-rose-100 py-4"
                 >
-                  <img src={deleteIcon} alt="" />
-                </button>
-              </li>
-            );
-          })}
-        </ul>
+                  <div>
+                    <h3 className="text-sm font-bold text-rose-900">
+                      {item.name}
+                    </h3>
+                    <div className="flex">
+                      <p className="mr-3 font-medium text-red">
+                        {item.quantity}&times;
+                      </p>
+                      <p className="mr-2 text-rose-300">&#64;${item.price}</p>
+                      <p className="font-medium text-rose-400">
+                        ${item.price * item.quantity}
+                      </p>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => deleteCartItem(item.id)}
+                    aria-label={`Delete cartItem - ${item.name}`}
+                    className="flex h-4.5 w-4.5 items-center justify-center rounded-full border-2 border-rose-300"
+                  >
+                    <img src={deleteIcon} alt="" />
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+          <div className="flex items-center justify-between my-4">
+            <p>Order Total</p>
+            <p>total amount</p>
+          </div>
+          <div className="flex items-center justify-center py-4 bg-rose-100 text-sm gap-2 mb-4 rounded-sm">
+            <img src={carbonNeutralIcon} alt="" />
+            <p>This is a <span className="font-bold">carbon neutral</span> delivery</p>
+          </div>
+          <button className="bg-red w-full py-4 text-rose-50 rounded-full cursor-pointer font-medium">
+            Confirm Order
+          </button>
+        </div>
       )}
     </section>
   );

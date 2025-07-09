@@ -15,20 +15,26 @@ function ProductList({ addToCart, cartItems, isItemInCart }) {
         {!isItemInCart(cartItems, item.id) ? (
           <button
             onClick={() => addToCart(item)}
-            className="relative left-2/4 flex h-[2.75rem] w-full max-w-[10rem] -translate-x-2/4 -translate-y-2/4 cursor-pointer items-center justify-center gap-2 rounded-[100vmax] border-1 border-rose-400 bg-white"
+            className="relative left-2/4 flex h-[2.75rem] w-full max-w-[10rem] -translate-x-2/4 -translate-y-2/4 cursor-pointer items-center justify-center gap-2 rounded-[100vmax] border-1 border-rose-400 bg-rose-50"
           >
             <img src={addToCartIcon} alt="" />
             <span className="font-medium text-rose-900">Add to cart</span>
           </button>
         ) : (
           <div className="relative left-2/4 flex h-[2.75rem] w-full max-w-[10rem] -translate-x-2/4 -translate-y-2/4 items-center justify-between gap-4 rounded-[100vmax] bg-red px-4">
-            <button aria-label="Decrease quantity">
+            <button
+              className="flex aspect-square w-4 items-center justify-center rounded-full border-1 border-rose-50 cursor-pointer"
+              aria-label="Decrease quantity"
+            >
               <img src={decrementQuantityIcon} alt="" />
             </button>
             <span aria-label="Quantity" className="text-rose-50">
               0
             </span>
-            <button aria-label="Increase quantity" className="border-rose-50">
+            <button
+              className="flex aspect-square w-4 items-center justify-center rounded-full border-1 border-rose-50 cursor-pointer"
+              aria-label="Increase quantity"
+            >
               <img src={incrementQantityIcon} alt="" />
             </button>
           </div>
