@@ -18,17 +18,27 @@ export default function Cart({ cartItems }) {
         <ul>
           {cartItems.map((item) => {
             return (
-              <li key={item.id} className="border-b-rose-100 border-b-1 border-solid flex items-center justify-between py-4">
+              <li
+                key={item.id}
+                className="flex items-center justify-between border-b-1 border-solid border-b-rose-100 py-4"
+              >
                 <div>
-                  <h3 className="font-bold text-sm text-rose-900">{item.name}</h3>
+                  <h3 className="text-sm font-bold text-rose-900">
+                    {item.name}
+                  </h3>
                   <div className="flex">
-                    <p aria-label="Quantity" className="text-red mr-3 font-medium">{item.quantity}&times;</p>
-                    <p aria-label="Unit price" className="text-rose-300 mr-2">&#64;${item.price}</p>
-                    <p aria-label="Total price" className="text-rose-400 font-medium">${item.price * item.quantity}</p>
+                    <p className="mr-3 font-medium text-red">
+                      {item.quantity}&times;
+                    </p>
+                    <p className="mr-2 text-rose-300">&#64;${item.price}</p>
+                    <p className="font-medium text-rose-400">
+                      ${item.price * item.quantity}
+                    </p>
                   </div>
                 </div>
-                <button aria-label={`Delete cartItem - ${item.name}`}
-                  className="w-4.5 h-4.5 border-2 flex items-center justify-center rounded-full border-rose-300"
+                <button
+                  aria-label={`Delete cartItem - ${item.name}`}
+                  className="flex h-4.5 w-4.5 items-center justify-center rounded-full border-2 border-rose-300"
                 >
                   <img src={deleteIcon} alt="" />
                 </button>

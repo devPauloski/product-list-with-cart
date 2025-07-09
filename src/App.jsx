@@ -8,14 +8,24 @@ export default function App() {
   const [cartItems, setCartItems] = useState([]);
 
   function addToCart(productItem) {
-    return setCartItems(currentCartItems => {
+    setCartItems(currentCartItems => {
       return [...currentCartItems, {...productItem, quantity: 1}]
     })
   }
 
+  function isItemInCart(currentCartItems, productItemId) {
+    for (const item of currentCartItems) {
+      if (item.id === productItemId) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
   return (
     <Wrapper>
-      <Products addToCart={addToCart} />
+      <Products addToCart={addToCart} isItemInCart={isItemInCart} cartItems={cartItems} />
       <Cart cartItems={cartItems} />
       <Order />
     </Wrapper>

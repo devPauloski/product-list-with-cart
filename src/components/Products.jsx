@@ -3,7 +3,7 @@ import addToCartIcon from "../assets/icons/icon-add-to-cart.svg";
 import incrementQantityIcon from "../assets/icons/icon-increment-quantity.svg";
 import decrementQuantityIcon from "../assets/icons/icon-decrement-quantity.svg";
 
-function ProductList({addToCart}) {
+function ProductList({ addToCart, cartItems, isItemInCart }) {
   const products = data.map((item) => {
     return (
       <li key={item.id}>
@@ -12,23 +12,28 @@ function ProductList({addToCart}) {
           <source srcSet={item.image.tablet} media="(min-width: 48em)" />
           <img src={item.image.mobile} alt={item.name} className="rounded-xl" />
         </picture>
-        <button className="relative left-2/4 flex h-[2.75rem] w-full max-w-[10rem] -translate-x-2/4 -translate-y-2/4 cursor-pointer items-center justify-center gap-2 rounded-[100vmax] border-1 border-rose-400 bg-white"
-        onClick={() => addToCart(item)}
-        >
-          <img src={addToCartIcon} alt="" />
-          <span className="font-medium text-rose-900">Add to cart</span>
-        </button>
-        {/* <div className="relative left-2/4 flex h-[2.75rem] w-full max-w-[10rem] -translate-x-2/4 -translate-y-2/4 items-center justify-between gap-4 rounded-[100vmax] bg-red px-4">
-          <button aria-label="Decrease quantity">
-            <img src={decrementQuantityIcon} alt="" />
+        {!isItemInCart(cartItems, item.id) ? (
+          <button
+            className="relative left-2/4 flex h-[2.75rem] w-full max-w-[10rem] -translate-x-2/4 -translate-y-2/4 cursor-pointer items-center justify-center gap-2 rounded-[100vmax] border-1 border-rose-400 bg-white"
+            onClick={() => addToCart(item)}
+          >
+            <img src={addToCartIcon} alt="" />
+            <span className="font-medium text-rose-900">Add to cart</span>
           </button>
-          <span aria-label="Quantity" className="text-rose-50">
-            0
-          </span>
-          <button aria-label="Increase quantity" className="border-rose-50">
-            <img src={incrementQantityIcon} alt="" />
-          </button>
-        </div> */}
+        ) : (
+          <div className="relative left-2/4 flex h-[2.75rem] w-full max-w-[10rem] -translate-x-2/4 -translate-y-2/4 items-center justify-between gap-4 rounded-[100vmax] bg-red px-4">
+            <button aria-label="Decrease quantity">
+              <img src={decrementQuantityIcon} alt="" />
+            </button>
+            <span aria-label="Quantity" className="text-rose-50">
+              0
+            </span>
+            <button aria-label="Increase quantity" className="border-rose-50">
+              <img src={incrementQantityIcon} alt="" />
+            </button>
+          </div>
+        )}
+
         <p className="mb-1 text-sm text-rose-400">{item.category}</p>
         <h2 className="mb-1 font-medium text-rose-900">{item.name}</h2>
         <p className="font-medium text-red">${item.price}</p>
@@ -43,13 +48,15 @@ function ProductList({addToCart}) {
   );
 }
 
-export default function Products({addToCart}) {
+export default function Products({ addToCart, cartItems, isItemInCart }) {
   return (
     <section>
       <h1 className="mb-9 text-[2rem] leading-tight font-bold">Desserts</h1>
-      <ProductList addToCart={addToCart} />
+      <ProductList
+        addToCart={addToCart}
+        cartItems={cartItems}
+        isItemInCart={isItemInCart}
+      />
     </section>
   );
 }
-
-
