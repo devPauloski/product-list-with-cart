@@ -18,19 +18,19 @@ export default function App() {
       return currentCartItems.map((item) =>
         item.id === productItemId
           ? { ...item, quantity: item.quantity + 1 }
-          : item
+          : item,
       );
     });
   }
 
   function decreaseQuantity(productItemId) {
     setCartItems((currentCartItems) => {
-      return currentCartItems.map((item) =>
-        (item.id === productItemId
-          ? { ...item, quantity: item.quantity - 1 }
-          : item
-        ).filter((item) => item.quantity > 0)
-      );
+      return currentCartItems
+        .map((item) =>
+          item.id === productItemId
+            ? { ...item, quantity: item.quantity - 1 }
+            : item,
+        ).filter((item) => item.quantity > 0);
     });
   }
 
