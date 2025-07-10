@@ -53,7 +53,6 @@ export default function App() {
     return total;
   }
 
-
   return (
     <Wrapper>
       <Products
@@ -62,7 +61,11 @@ export default function App() {
         decreaseQuantity={decreaseQuantity}
         increaseQuantity={increaseQuantity}
       />
-      <Cart cartItems={cartItems} deleteCartItem={deleteCartItem} totalAmount={totalAmount} />
+      <Cart
+        cartItems={cartItems}
+        deleteCartItem={deleteCartItem}
+        totalAmount={totalAmount}
+      />
       <Order />
     </Wrapper>
   );
