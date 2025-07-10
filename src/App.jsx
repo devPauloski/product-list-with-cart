@@ -60,7 +60,7 @@ export default function App() {
 
   function totalAmount() {
     let total = 0;
-    for (let item of cartItems) {
+    for (const item of cartItems) {
       total = total + item.quantity * item.price;
     }
     return total;

@@ -3,10 +3,18 @@ import DeleteIcon from "../assets/icons/icon-remove-item.svg?react";
 import CarbonNeutralIcon from "../assets/icons/icon-carbon-neutral.svg?react";
 
 export default function Cart({ cartItems, deleteCartItem, totalAmount, setIsOrderConfirmed }) {
+  function totalQuantity() {
+    let total = 0;
+    for (const item of cartItems) {
+      total = total + item.quantity;
+    }
+    return total;
+  }
+
   return (
     <section className="sticky top-[1.875rem] h-fit rounded-xl bg-white p-5 shadow-xl">
       <h2 className="mb-2 text-2xl leading-tight font-bold text-red">
-        Your Cart ({cartItems.length})
+        Your Cart ({totalQuantity()})
       </h2>
       {cartItems.length === 0 ? (
         <div className="grid place-items-center pt-6 pb-14">
