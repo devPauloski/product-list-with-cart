@@ -1,12 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Wrapper from "./components/Wrapper.jsx";
 import Products from "./components/Products.jsx";
 import Cart from "./components/Cart.jsx";
 import Order from "./components/Order.jsx";
 
 export default function App() {
-  const [cartItems, setCartItems] = useState([]);
   const [isOrderConfirmed, setIsOrderConfirmed] = useState(false);
+  const [cartItems, setCartItems] = useState(() => {
+    const savedValue = localStorage.getItem("ITEMS");
+
+    if (savedValue === null) {
+      return []
+    } else {
+      return JSON.parse(savedValue)
+    }
+  })
+
+  useEffect(() => {
+    localStorage.setItem("ITEMS", JSON.stringify(cartItems))
+  }, [cartItems])
 
   function addToCart(productItem) {
     setCartItems((currentCartItems) => {
