@@ -77,6 +77,7 @@ export default function App() {
         cartItems={cartItems}
         isOrderConfirmed={isOrderConfirmed}
         startNewOrder={startNewOrder}
+        totalAmount={totalAmount}
       />
     </Wrapper>
   );
