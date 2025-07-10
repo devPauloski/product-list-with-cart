@@ -15,7 +15,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![Web page preview](/public/screenshot.png)
 
 ### Built with
 
