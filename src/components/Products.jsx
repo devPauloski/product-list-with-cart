@@ -3,12 +3,7 @@ import AddToCartIcon from "../assets/icons/icon-add-to-cart.svg?react";
 import IncrementQuantityIcon from "../assets/icons/icon-increment-quantity.svg?react";
 import DecrementQuantityIcon from "../assets/icons/icon-decrement-quantity.svg?react";
 
-function ProductList({
-  addToCart,
-  isItemInCart,
-  decreaseQuantity,
-  increaseQuantity,
-}) {
+function ProductList({ addToCart, isItemInCart, decreaseQuantity, increaseQuantity }) {
   const products = data.map((item) => {
     return (
       <li key={item.id}>
@@ -68,12 +63,7 @@ function ProductList({
   );
 }
 
-export default function Products({
-  addToCart,
-  isItemInCart,
-  decreaseQuantity,
-  increaseQuantity,
-}) {
+export default function Products({ addToCart, isItemInCart, decreaseQuantity, increaseQuantity }) {
   return (
     <section>
       <h1 className="mb-9 text-[2rem] leading-tight font-bold">Desserts</h1>
