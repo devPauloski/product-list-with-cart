@@ -13,19 +13,35 @@ export default function App() {
     });
   }
 
-  function deleteCartItem(productItemId) {
-    setCartItems(currentCartItems => {
-      return currentCartItems.filter(item => item.id !== productItemId)
+  function increaseQuantity(productItemId) {
+    setCartItems((currentCartItems) => {
+      return currentCartItems.map((item) =>
+        item.id === productItemId
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
     });
   }
 
-  function isItemInCart(currentCartItems, productItemId) {
-    for (const item of currentCartItems) {
-      if (item.id === productItemId) {
-        return true;
-      }
-    }
-    return false;
+  function decreaseQuantity(productItemId) {
+    setCartItems((currentCartItems) => {
+      return currentCartItems.map((item) =>
+        (item.id === productItemId
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+        ).filter((item) => item.quantity > 0)
+      );
+    });
+  }
+
+  function deleteCartItem(productItemId) {
+    setCartItems((currentCartItems) => {
+      return currentCartItems.filter((item) => item.id !== productItemId);
+    });
+  }
+
+  function isItemInCart(productItemId) {
+    return cartItems.find((item) => item.id === productItemId);
   }
 
   return (
@@ -33,7 +49,8 @@ export default function App() {
       <Products
         addToCart={addToCart}
         isItemInCart={isItemInCart}
-        cartItems={cartItems}
+        decreaseQuantity={decreaseQuantity}
+        increaseQuantity={increaseQuantity}
       />
       <Cart cartItems={cartItems} deleteCartItem={deleteCartItem} />
       <Order />

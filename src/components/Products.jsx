@@ -3,7 +3,7 @@ import addToCartIcon from "../assets/icons/icon-add-to-cart.svg";
 import incrementQantityIcon from "../assets/icons/icon-increment-quantity.svg";
 import decrementQuantityIcon from "../assets/icons/icon-decrement-quantity.svg";
 
-function ProductList({ addToCart, cartItems, isItemInCart }) {
+function ProductList({ addToCart, isItemInCart, decreaseQuantity, increaseQuantity }) {
   const products = data.map((item) => {
     return (
       <li key={item.id}>
@@ -12,27 +12,29 @@ function ProductList({ addToCart, cartItems, isItemInCart }) {
           <source srcSet={item.image.tablet} media="(min-width: 48em)" />
           <img src={item.image.mobile} alt={item.name} className="rounded-xl" />
         </picture>
-        {!isItemInCart(cartItems, item.id) ? (
+        {!isItemInCart(item.id) ? (
           <button
             onClick={() => addToCart(item)}
-            className="relative left-2/4 flex h-[2.75rem] w-full max-w-[10rem] -translate-x-2/4 -translate-y-2/4 cursor-pointer items-center justify-center gap-2 rounded-[100vmax] border-1 border-rose-400 bg-rose-50"
+            className="relative left-2/4 flex h-[2.75rem] w-full max-w-[10rem] -translate-x-2/4 -translate-y-2/4 cursor-pointer items-center justify-center gap-2 rounded-full border-1 border-rose-400 bg-rose-50"
           >
             <img src={addToCartIcon} alt="" />
             <span className="font-medium text-rose-900">Add to cart</span>
           </button>
         ) : (
-          <div className="relative left-2/4 flex h-[2.75rem] w-full max-w-[10rem] -translate-x-2/4 -translate-y-2/4 items-center justify-between gap-4 rounded-[100vmax] bg-red px-4">
+          <div className="relative left-2/4 flex h-[2.75rem] w-full max-w-[10rem] -translate-x-2/4 -translate-y-2/4 items-center justify-between gap-4 rounded-full bg-red px-4">
             <button
-              className="flex aspect-square w-4 items-center justify-center rounded-full border-1 border-rose-50 cursor-pointer"
+              onClick={() => decreaseQuantity(item.id)}
+              className="flex h-4 w-4 cursor-pointer items-center justify-center rounded-full border-1 border-rose-50"
               aria-label="Decrease quantity"
             >
               <img src={decrementQuantityIcon} alt="" />
             </button>
             <span aria-label="Quantity" className="text-rose-50">
-              0
+              {isItemInCart(item.id).quantity}
             </span>
             <button
-              className="flex aspect-square w-4 items-center justify-center rounded-full border-1 border-rose-50 cursor-pointer"
+              onClick={() => increaseQuantity(item.id)}
+              className="flex h-4 w-4 cursor-pointer items-center justify-center rounded-full border-1 border-rose-50"
               aria-label="Increase quantity"
             >
               <img src={incrementQantityIcon} alt="" />
@@ -54,14 +56,15 @@ function ProductList({ addToCart, cartItems, isItemInCart }) {
   );
 }
 
-export default function Products({ addToCart, cartItems, isItemInCart }) {
+export default function Products({ addToCart, isItemInCart, decreaseQuantity, increaseQuantity }) {
   return (
     <section>
       <h1 className="mb-9 text-[2rem] leading-tight font-bold">Desserts</h1>
       <ProductList
         addToCart={addToCart}
-        cartItems={cartItems}
         isItemInCart={isItemInCart}
+        decreaseQuantity={decreaseQuantity}
+        increaseQuantity={increaseQuantity}
       />
     </section>
   );
