@@ -25,6 +25,7 @@
   --color-rose-400: hsl(7, 20%, 60%);
   --color-rose-500: hsl(12, 20%, 44%);
   --color-rose-900: hsl(14, 65%, 9%);
+  --color-overlay: hsla(0, 0%, 0%, 0.5);
 
   /* Typography */
   --font-red-hat-text: "Red Hat Text", sans-serif;

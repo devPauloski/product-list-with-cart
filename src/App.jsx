@@ -6,6 +6,7 @@ import Order from "./components/Order.jsx";
 
 export default function App() {
   const [cartItems, setCartItems] = useState([]);
+  const [isOrderConfirmed, setIsOrderConfirmed] = useState(false);
 
   function addToCart(productItem) {
     setCartItems((currentCartItems) => {
@@ -65,8 +66,12 @@ export default function App() {
         cartItems={cartItems}
         deleteCartItem={deleteCartItem}
         totalAmount={totalAmount}
+        setIsOrderConfirmed={setIsOrderConfirmed}
       />
-      <Order />
+      <Order
+        cartItems={cartItems}
+        isOrderConfirmed={isOrderConfirmed}
+      />
     </Wrapper>
   );
 }

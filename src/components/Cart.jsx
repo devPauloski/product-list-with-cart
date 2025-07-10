@@ -2,7 +2,7 @@ import EmptyCartIcon from "../assets/icons/illustration-empty-cart.svg?react";
 import DeleteIcon from "../assets/icons/icon-remove-item.svg?react";
 import CarbonNeutralIcon from "../assets/icons/icon-carbon-neutral.svg?react";
 
-export default function Cart({ cartItems, deleteCartItem, totalAmount }) {
+export default function Cart({ cartItems, deleteCartItem, totalAmount, setIsOrderConfirmed }) {
   return (
     <section className="sticky top-[1.875rem] h-fit rounded-xl bg-white p-5 shadow-xl">
       <h2 className="mb-2 text-2xl leading-tight font-bold text-red">
@@ -43,7 +43,7 @@ export default function Cart({ cartItems, deleteCartItem, totalAmount }) {
                     aria-label={`Delete cartItem - ${item.name}`}
                     className="flex cursor-pointer items-center justify-center"
                   >
-                    <DeleteIcon className="h-4.5 w-4.5 rounded-full border-2 border-rose-300 bg-rose-50 fill-rose-300 p-0.5 hover:border-rose-900 hover:fill-rose-900" />
+                    <DeleteIcon className="h-4.5 w-4.5 rounded-full border-2 border-rose-400 bg-rose-50 fill-rose-400 p-0.5 hover:border-rose-900 hover:fill-rose-900" />
                   </button>
                 </li>
               );
@@ -60,7 +60,9 @@ export default function Cart({ cartItems, deleteCartItem, totalAmount }) {
               delivery
             </p>
           </div>
-          <button className="w-full cursor-pointer rounded-full bg-red py-4 font-medium text-rose-50 hover:bg-red-100">
+          <button
+             onClick={( ) => setIsOrderConfirmed(true)}
+             className="w-full cursor-pointer rounded-full bg-red py-4 font-medium text-rose-50 hover:bg-red-100">
             Confirm Order
           </button>
         </div>
