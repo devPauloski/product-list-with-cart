@@ -17,6 +17,7 @@
 @theme {
   /* Colors */
   --color-red: hsl(14, 86%, 42%);
+  --color-red-100: hsl(14, 85%, 32%);
   --color-green: hsl(159, 69%, 38%);
   --color-rose-50: hsl(20, 50%, 98%);
   --color-rose-100: hsl(13, 31%, 94%);

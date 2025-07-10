@@ -1,16 +1,16 @@
-import emptyCartIcon from "../assets/icons/illustration-empty-cart.svg";
-import deleteIcon from "../assets/icons/icon-remove-item.svg";
-import carbonNeutralIcon from "../assets/icons/icon-carbon-neutral.svg";
+import EmptyCartIcon from "../assets/icons/illustration-empty-cart.svg?react";
+import DeleteIcon from "../assets/icons/icon-remove-item.svg?react";
+import CarbonNeutralIcon from "../assets/icons/icon-carbon-neutral.svg?react";
 
 export default function Cart({ cartItems, deleteCartItem, totalAmount }) {
   return (
-    <section className="h-fit rounded-xl bg-white p-5 shadow-xl sticky top-[1.875rem]">
+    <section className="sticky top-[1.875rem] h-fit rounded-xl bg-white p-5 shadow-xl">
       <h2 className="mb-2 text-2xl leading-tight font-bold text-red">
         Your Cart ({cartItems.length})
       </h2>
       {cartItems.length === 0 ? (
         <div className="grid place-items-center pt-6 pb-14">
-          <img className="mb-3" src={emptyCartIcon} alt="" />
+          <EmptyCartIcon className="mb-3" />
           <p className="font-medium text-rose-500">
             Your added items will appear here
           </p>
@@ -22,7 +22,7 @@ export default function Cart({ cartItems, deleteCartItem, totalAmount }) {
               return (
                 <li
                   key={item.id}
-                  className="flex items-center justify-between border-b-1 border-solid border-b-rose-100 py-4 gap-2 flex-wrap"
+                  className="flex flex-wrap items-center justify-between gap-2 border-b-1 border-solid border-b-rose-100 py-4"
                 >
                   <div>
                     <h3 className="text-sm font-bold text-rose-900">
@@ -41,23 +41,26 @@ export default function Cart({ cartItems, deleteCartItem, totalAmount }) {
                   <button
                     onClick={() => deleteCartItem(item.id)}
                     aria-label={`Delete cartItem - ${item.name}`}
-                    className="flex h-4.5 w-4.5 items-center justify-center rounded-full border-2 border-rose-300 cursor-pointer"
+                    className="flex cursor-pointer items-center justify-center"
                   >
-                    <img src={deleteIcon} alt="" />
+                    <DeleteIcon className="h-4.5 w-4.5 rounded-full border-2 border-rose-300 bg-rose-50 fill-rose-300 p-0.5 hover:border-rose-900 hover:fill-rose-900" />
                   </button>
                 </li>
               );
             })}
           </ul>
-          <div className="flex items-center justify-between my-5 flex-wrap text-rose-900">
+          <div className="my-5 flex flex-wrap items-center justify-between text-rose-900">
             <p>Order Total</p>
-            <p className="font-bold text-2xl">${totalAmount().toFixed(2)}</p>
+            <p className="text-2xl font-bold">${totalAmount().toFixed(2)}</p>
           </div>
-          <div className="flex items-center justify-center py-4 bg-rose-100 text-sm gap-1 mb-4 rounded-sm flex-wrap">
-            <img src={carbonNeutralIcon} alt="" />
-            <p>This is a <span className="font-bold">carbon neutral</span> delivery</p>
+          <div className="mb-6 flex flex-wrap items-center justify-center gap-1 rounded-[.5rem] bg-rose-100 py-4 text-sm">
+            <CarbonNeutralIcon />
+            <p>
+              This is a <span className="font-bold">carbon neutral</span>{" "}
+              delivery
+            </p>
           </div>
-          <button className="bg-red w-full py-4 text-rose-50 rounded-full cursor-pointer font-medium">
+          <button className="w-full cursor-pointer rounded-full bg-red py-4 font-medium text-rose-50 hover:bg-red-100">
             Confirm Order
           </button>
         </div>

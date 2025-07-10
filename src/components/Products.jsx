@@ -1,7 +1,7 @@
 import data from "../data.json";
-import addToCartIcon from "../assets/icons/icon-add-to-cart.svg";
-import incrementQantityIcon from "../assets/icons/icon-increment-quantity.svg";
-import decrementQuantityIcon from "../assets/icons/icon-decrement-quantity.svg";
+import AddToCartIcon from "../assets/icons/icon-add-to-cart.svg?react";
+import IncrementQuantityIcon from "../assets/icons/icon-increment-quantity.svg?react";
+import DecrementQuantityIcon from "../assets/icons/icon-decrement-quantity.svg?react";
 
 function ProductList({
   addToCart,
@@ -29,27 +29,27 @@ function ProductList({
             onClick={() => addToCart(item)}
             className="relative left-2/4 flex h-[2.75rem] w-full max-w-[10rem] -translate-x-2/4 -translate-y-2/4 cursor-pointer items-center justify-center gap-2 rounded-full border-1 border-rose-400 bg-rose-50 text-rose-900 hover:border-red hover:text-red"
           >
-            <img src={addToCartIcon} alt="" />
+            <AddToCartIcon />
             <span className="font-medium">Add to cart</span>
           </button>
         ) : (
           <div className="relative left-2/4 flex h-[2.75rem] w-full max-w-[10rem] -translate-x-2/4 -translate-y-2/4 items-center justify-between gap-4 rounded-full bg-red px-4">
             <button
               onClick={() => decreaseQuantity(item.id)}
-              className="flex h-4 w-4 cursor-pointer items-center justify-center rounded-full border-1 border-rose-50"
+              className="flex cursor-pointer items-center justify-center"
               aria-label="Decrease quantity"
             >
-              <img src={decrementQuantityIcon} alt="" />
+              <DecrementQuantityIcon className="h-4 w-4 rounded-full border-1 border-rose-50 fill-rose-50 p-0.5 hover:bg-rose-50 hover:fill-red" />
             </button>
             <span aria-label="Quantity" className="font-medium text-rose-50">
               {isItemInCart(item.id).quantity}
             </span>
             <button
               onClick={() => increaseQuantity(item.id)}
-              className="flex h-4 w-4 cursor-pointer items-center justify-center rounded-full border-1 border-rose-50"
+              className="flex cursor-pointer items-center justify-center"
               aria-label="Increase quantity"
             >
-              <img src={incrementQantityIcon} alt="" />
+              <IncrementQuantityIcon className="h-4 w-4 rounded-full border-1 border-rose-50 fill-rose-50 p-0.5 hover:bg-rose-50 hover:fill-red" />
             </button>
           </div>
         )}
