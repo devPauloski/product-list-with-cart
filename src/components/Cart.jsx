@@ -30,7 +30,7 @@ export default function Cart({ cartItems, deleteCartItem, totalAmount }) {
                     </h3>
                     <div className="flex">
                       <p className="mr-3 font-bold text-red">
-                        {item.quantity}&times;
+                        {item.quantity}x
                       </p>
                       <p className="mr-2 text-rose-500">&#64;${item.price}</p>
                       <p className="font-medium text-rose-500">
