@@ -30,7 +30,8 @@ export default function App() {
           item.id === productItemId
             ? { ...item, quantity: item.quantity - 1 }
             : item,
-        ).filter((item) => item.quantity > 0);
+        )
+        .filter((item) => item.quantity > 0);
     });
   }
 
@@ -44,6 +45,15 @@ export default function App() {
     return cartItems.find((item) => item.id === productItemId);
   }
 
+  function totalAmount() {
+    let total = 0;
+    for (let item of cartItems) {
+      total = total + item.quantity * item.price;
+    }
+    return total;
+  }
+
+
   return (
     <Wrapper>
       <Products
@@ -52,7 +62,7 @@ export default function App() {
         decreaseQuantity={decreaseQuantity}
         increaseQuantity={increaseQuantity}
       />
-      <Cart cartItems={cartItems} deleteCartItem={deleteCartItem} />
+      <Cart cartItems={cartItems} deleteCartItem={deleteCartItem} totalAmount={totalAmount} />
       <Order />
     </Wrapper>
   );

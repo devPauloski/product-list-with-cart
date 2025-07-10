@@ -29,7 +29,7 @@ function ProductList({ addToCart, isItemInCart, decreaseQuantity, increaseQuanti
             >
               <img src={decrementQuantityIcon} alt="" />
             </button>
-            <span aria-label="Quantity" className="text-rose-50">
+            <span aria-label="Quantity" className="text-rose-50 font-medium">
               {isItemInCart(item.id).quantity}
             </span>
             <button
@@ -42,7 +42,7 @@ function ProductList({ addToCart, isItemInCart, decreaseQuantity, increaseQuanti
           </div>
         )}
 
-        <p className="mb-1 text-sm text-rose-400">{item.category}</p>
+        <p className="mb-1 text-sm text-rose-500">{item.category}</p>
         <h2 className="mb-1 font-medium text-rose-900">{item.name}</h2>
         <p className="font-medium text-red">${item.price}</p>
       </li>

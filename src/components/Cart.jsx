@@ -2,7 +2,7 @@ import emptyCartIcon from "../assets/icons/illustration-empty-cart.svg";
 import deleteIcon from "../assets/icons/icon-remove-item.svg";
 import carbonNeutralIcon from "../assets/icons/icon-carbon-neutral.svg";
 
-export default function Cart({ cartItems, deleteCartItem }) {
+export default function Cart({ cartItems, deleteCartItem, totalAmount }) {
   return (
     <section className="h-fit rounded-xl bg-white p-5 shadow-xl sticky top-[1.875rem]">
       <h2 className="mb-2 text-2xl leading-tight font-bold text-red">
@@ -29,11 +29,11 @@ export default function Cart({ cartItems, deleteCartItem }) {
                       {item.name}
                     </h3>
                     <div className="flex">
-                      <p className="mr-3 font-medium text-red">
+                      <p className="mr-3 font-bold text-red">
                         {item.quantity}&times;
                       </p>
-                      <p className="mr-2 text-rose-300">&#64;${item.price}</p>
-                      <p className="font-medium text-rose-400">
+                      <p className="mr-2 text-rose-500">&#64;${item.price}</p>
+                      <p className="font-medium text-rose-500">
                         ${item.price * item.quantity}
                       </p>
                     </div>
@@ -41,7 +41,7 @@ export default function Cart({ cartItems, deleteCartItem }) {
                   <button
                     onClick={() => deleteCartItem(item.id)}
                     aria-label={`Delete cartItem - ${item.name}`}
-                    className="flex h-4.5 w-4.5 items-center justify-center rounded-full border-2 border-rose-300"
+                    className="flex h-4.5 w-4.5 items-center justify-center rounded-full border-2 border-rose-300 cursor-pointer"
                   >
                     <img src={deleteIcon} alt="" />
                   </button>
@@ -49,9 +49,9 @@ export default function Cart({ cartItems, deleteCartItem }) {
               );
             })}
           </ul>
-          <div className="flex items-center justify-between my-4 flex-wrap">
+          <div className="flex items-center justify-between my-5 flex-wrap text-rose-900">
             <p>Order Total</p>
-            <p>total amount</p>
+            <p className="font-bold text-2xl">${totalAmount().toFixed(2)}</p>
           </div>
           <div className="flex items-center justify-center py-4 bg-rose-100 text-sm gap-1 mb-4 rounded-sm flex-wrap">
             <img src={carbonNeutralIcon} alt="" />
