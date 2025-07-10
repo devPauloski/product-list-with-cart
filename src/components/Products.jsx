@@ -3,14 +3,26 @@ import addToCartIcon from "../assets/icons/icon-add-to-cart.svg";
 import incrementQantityIcon from "../assets/icons/icon-increment-quantity.svg";
 import decrementQuantityIcon from "../assets/icons/icon-decrement-quantity.svg";
 
-function ProductList({ addToCart, isItemInCart, decreaseQuantity, increaseQuantity }) {
+function ProductList({
+  addToCart,
+  isItemInCart,
+  decreaseQuantity,
+  increaseQuantity,
+}) {
   const products = data.map((item) => {
     return (
       <li key={item.id}>
         <picture>
           <source srcSet={item.image.desktop} media="(min-width: 64em)" />
           <source srcSet={item.image.tablet} media="(min-width: 48em)" />
-          <img src={item.image.mobile} alt={item.name} className="rounded-xl" />
+          <img
+            style={{
+              border: isItemInCart(item.id) && "2px solid hsl(14, 86%, 42%)",
+            }}
+            src={item.image.mobile}
+            alt={item.name}
+            className="rounded-xl"
+          />
         </picture>
         {!isItemInCart(item.id) ? (
           <button
@@ -29,7 +41,7 @@ function ProductList({ addToCart, isItemInCart, decreaseQuantity, increaseQuanti
             >
               <img src={decrementQuantityIcon} alt="" />
             </button>
-            <span aria-label="Quantity" className="text-rose-50 font-medium">
+            <span aria-label="Quantity" className="font-medium text-rose-50">
               {isItemInCart(item.id).quantity}
             </span>
             <button
@@ -56,7 +68,12 @@ function ProductList({ addToCart, isItemInCart, decreaseQuantity, increaseQuanti
   );
 }
 
-export default function Products({ addToCart, isItemInCart, decreaseQuantity, increaseQuantity }) {
+export default function Products({
+  addToCart,
+  isItemInCart,
+  decreaseQuantity,
+  increaseQuantity,
+}) {
   return (
     <section>
       <h1 className="mb-9 text-[2rem] leading-tight font-bold">Desserts</h1>
