@@ -1,6 +1,6 @@
 import OrderConfirmedIcon from "../assets/icons/icon-order-confirmed.svg?react";
 
-export default function Order({ cartItems, isOrderConfirmed }) {
+export default function Order({ cartItems, isOrderConfirmed, startNewOrder }) {
   return (
     <>
       {isOrderConfirmed && (
@@ -11,11 +11,18 @@ export default function Order({ cartItems, isOrderConfirmed }) {
               Order Confirmed
             </h2>
             <p className="mb-6 text-rose-400">We hope you enjoy your food!</p>
-            <ul>
-              {cartItems.map((item) => {
-                return <li key={item.id}>{item.name}</li>;
-              })}
-            </ul>
+            <div>
+              <ul>
+                {cartItems.map((item) => {
+                  return <li key={item.id}>{item.name}</li>;
+                })}
+              </ul>
+              <div>
+                <p>Order Total</p>
+                <p>total amount</p>
+              </div>
+            </div>
+            <button onClick={() => {startNewOrder()}}>Start New Order</button>
           </div>
         </section>
       )}

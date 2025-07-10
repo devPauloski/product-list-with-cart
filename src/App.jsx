@@ -54,6 +54,11 @@ export default function App() {
     return total;
   }
 
+  function startNewOrder() {
+    setCartItems([]);
+    setIsOrderConfirmed(false);
+  }
+
   return (
     <Wrapper>
       <Products
@@ -71,6 +76,7 @@ export default function App() {
       <Order
         cartItems={cartItems}
         isOrderConfirmed={isOrderConfirmed}
+        startNewOrder={startNewOrder}
       />
     </Wrapper>
   );
