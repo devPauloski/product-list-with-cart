@@ -22,7 +22,6 @@ function ProductList({
             }}
             src={item.image.mobile}
             alt={item.name}
-            loading="lazy"
           />
         </picture>
         {!isItemInCart(item.id) ? (

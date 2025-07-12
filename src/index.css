@@ -5,6 +5,7 @@
   src: url("/src/assets/fonts/RedHatText-VariableFont_wght.ttf");
   font-weight: 300 700;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -12,6 +13,7 @@
   src: url("/src/assets/fonts/RedHatText-Italic-VariableFont_wght.ttf");
   font-weight: 300 700;
   font-style: italic;
+  font-display: swap;
 }
 
 @theme {
