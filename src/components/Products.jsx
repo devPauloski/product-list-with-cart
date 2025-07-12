@@ -17,11 +17,11 @@ function ProductList({
           <source srcSet={item.image.tablet} media="(min-width: 48em)" />
           <img
             className="rounded-xl"
+            src={item.image.mobile}
+            alt={item.name}
             style={{
               border: isItemInCart(item.id) && "2px solid hsl(14, 86%, 42%)",
             }}
-            src={item.image.mobile}
-            alt={item.name}
           />
         </picture>
         {!isItemInCart(item.id) ? (
