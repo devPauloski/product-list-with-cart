@@ -2,7 +2,12 @@ import EmptyCartIcon from "../assets/icons/illustration-empty-cart.svg?react";
 import DeleteIcon from "../assets/icons/icon-remove-item.svg?react";
 import CarbonNeutralIcon from "../assets/icons/icon-carbon-neutral.svg?react";
 
-export default function Cart({ cartItems, deleteCartItem, totalAmount, setIsOrderConfirmed }) {
+export default function Cart({
+  cartItems,
+  deleteCartItem,
+  totalAmount,
+  setIsOrderConfirmed,
+}) {
   function totalQuantity() {
     let total = 0;
     for (const item of cartItems) {
@@ -49,7 +54,7 @@ export default function Cart({ cartItems, deleteCartItem, totalAmount, setIsOrde
                   <button
                     onClick={() => deleteCartItem(item.id)}
                     aria-label={`Delete cartItem - ${item.name}`}
-                    className="flex cursor-pointer items-center justify-center"
+                    className="flex cursor-pointer items-center justify-center rounded-full focus-visible:border-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-900"
                   >
                     <DeleteIcon className="h-4.5 w-4.5 rounded-full border-2 border-rose-400 bg-rose-50 fill-rose-400 p-0.5 hover:border-rose-900 hover:fill-rose-900" />
                   </button>
@@ -69,8 +74,9 @@ export default function Cart({ cartItems, deleteCartItem, totalAmount, setIsOrde
             </p>
           </div>
           <button
-             onClick={( ) => setIsOrderConfirmed(true)}
-             className="w-full cursor-pointer rounded-full bg-red py-4 font-medium text-rose-50 hover:bg-red-100">
+            onClick={() => setIsOrderConfirmed(true)}
+            className="w-full cursor-pointer rounded-full bg-red py-4 font-medium text-rose-50 hover:bg-red-100 focus-visible:border-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-900"
+          >
             Confirm Order
           </button>
         </div>

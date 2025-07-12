@@ -3,7 +3,12 @@ import AddToCartIcon from "../assets/icons/icon-add-to-cart.svg?react";
 import IncrementQuantityIcon from "../assets/icons/icon-increment-quantity.svg?react";
 import DecrementQuantityIcon from "../assets/icons/icon-decrement-quantity.svg?react";
 
-function ProductList({ addToCart, isItemInCart, decreaseQuantity, increaseQuantity }) {
+function ProductList({
+  addToCart,
+  isItemInCart,
+  decreaseQuantity,
+  increaseQuantity,
+}) {
   const products = data.map((item) => {
     return (
       <li key={item.id}>
@@ -22,7 +27,7 @@ function ProductList({ addToCart, isItemInCart, decreaseQuantity, increaseQuanti
         {!isItemInCart(item.id) ? (
           <button
             onClick={() => addToCart(item)}
-            className="relative left-2/4 flex h-[2.75rem] w-full max-w-[10rem] -translate-x-2/4 -translate-y-2/4 cursor-pointer items-center justify-center gap-2 rounded-full border-1 border-rose-400 bg-rose-50 text-rose-900 hover:border-red hover:text-red"
+            className="relative left-2/4 flex h-[2.75rem] w-full max-w-[10rem] -translate-x-2/4 -translate-y-2/4 cursor-pointer items-center justify-center gap-2 rounded-full border-1 border-rose-400 bg-rose-50 text-rose-900 hover:border-red hover:text-red focus-visible:border-0 focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-red"
           >
             <AddToCartIcon />
             <span className="font-medium">Add to cart</span>
@@ -31,7 +36,7 @@ function ProductList({ addToCart, isItemInCart, decreaseQuantity, increaseQuanti
           <div className="relative left-2/4 flex h-[2.75rem] w-full max-w-[10rem] -translate-x-2/4 -translate-y-2/4 items-center justify-between gap-4 rounded-full bg-red px-4">
             <button
               onClick={() => decreaseQuantity(item.id)}
-              className="flex cursor-pointer items-center justify-center"
+              className="flex cursor-pointer items-center justify-center rounded-full focus-visible:border-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-900"
               aria-label="Decrease quantity"
             >
               <DecrementQuantityIcon className="h-4 w-4 rounded-full border-1 border-rose-50 fill-rose-50 p-0.5 hover:bg-rose-50 hover:fill-red" />
@@ -41,7 +46,7 @@ function ProductList({ addToCart, isItemInCart, decreaseQuantity, increaseQuanti
             </span>
             <button
               onClick={() => increaseQuantity(item.id)}
-              className="flex cursor-pointer items-center justify-center"
+              className="flex cursor-pointer items-center justify-center rounded-full focus-visible:border-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-900"
               aria-label="Increase quantity"
             >
               <IncrementQuantityIcon className="h-4 w-4 rounded-full border-1 border-rose-50 fill-rose-50 p-0.5 hover:bg-rose-50 hover:fill-red" />
@@ -63,7 +68,12 @@ function ProductList({ addToCart, isItemInCart, decreaseQuantity, increaseQuanti
   );
 }
 
-export default function Products({ addToCart, isItemInCart, decreaseQuantity, increaseQuantity }) {
+export default function Products({
+  addToCart,
+  isItemInCart,
+  decreaseQuantity,
+  increaseQuantity,
+}) {
   return (
     <section>
       <h1 className="mb-9 text-[2rem] leading-tight font-bold">Desserts</h1>
